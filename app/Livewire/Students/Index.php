@@ -8,6 +8,8 @@ use Livewire\WithPagination;
 class Index extends Component
 {
     use WithPagination, WithoutUrlPagination;
+
+
     #[Layout('layouts.app')]
     public function render()
     {
