@@ -18,15 +18,16 @@ class Create extends Component
             'classes' => Classes::all()
         ]);
     }
-    public function updated($property)
-    {
-        if ($property === 'form.class_id') {
-            $this->sections = Section::where('class_id', $this->form->class_id)->get();
-        }
-        // if($property === 'form.section_id'){
-        //     dd($this->form->section_id);
-        // }
-    }
+    // public function updated($property)
+    // {
+    //     if ($property === 'form.class_id') {
+    //         $this->sections = Section::where('class_id', $this->form->class_id)->get();
+    //     }
+    //     // if($property === 'form.section_id'){
+    //     //     dd($this->form->section_id);
+    //     // }
+    // }
+
     public function addStudent()
     {
         $this->validate();

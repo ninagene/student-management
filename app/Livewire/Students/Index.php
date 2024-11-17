@@ -17,4 +17,10 @@ class Index extends Component
             'students' => Student::paginate(5)
         ]);
     }
+    public function delete(Student $student)
+    {
+        $student->delete();
+
+        flash()->info("Student deleted succefully!");
+    }
 }

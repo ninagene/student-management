@@ -67,19 +67,21 @@
                                     <select
                                     id="section"
                                     wire:model.live="form.section_id"
+                                    wire:key="{{ $form->class_id }}"
                                     class="block w-full px-4 py-3 text-sm rounded-lg border-gray-200 pe-9 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600
                                         @error('form.section_id')
                                             text-red-900 focus:ring-red-500 focus:border-red-500 border-red-300
                                         @enderror
                                     ">
                                     <option value="">Select a section</option>
-                                        @foreach ($sections as $section)
-                                            <option value="{{ $section->id }}">{{ $section->name }} || {{ $section->class->name }}</option>
+                                        @foreach (App\Models\Section::where('class_id', $form->class_id)->get() as $section)
+                                        <option value="{{ $section->id }}">{{ $section->name }} || {{ $section->class->name }}</option>
                                         @endforeach
                                     </select>
                                         @error('form.section_id')
                                         <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
                                         @enderror
+
                                 </div>
 
                             </div>
