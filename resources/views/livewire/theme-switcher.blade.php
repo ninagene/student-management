@@ -33,7 +33,8 @@
             document.documentElement.classList.remove('dark');
         }
     }
-}" x-init="initTheme()">
+}"
+x-init="initTheme()">
     <button
         type="button"
         @click="toggleTheme()"
